@@ -1,0 +1,6 @@
+.idea/
+*.log
+cert/
+*.class
+/RestAPI/videos/
+/RestAPI/target/classes/static/
