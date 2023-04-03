@@ -4,3 +4,6 @@ cert/
 *.class
 /RestAPI/videos/
 /RestAPI/target/classes/static/
+/Web/.angular
+/Web/node_modules/
+/Web/old.git
