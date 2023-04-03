@@ -1,0 +1,11 @@
+:host {
+  display: grid;
+  justify-content: start;
+
+  grid-template-columns: auto auto;
+  grid-auto-flow: row dense;
+
+  grid-gap: 1rem;
+
+}
+

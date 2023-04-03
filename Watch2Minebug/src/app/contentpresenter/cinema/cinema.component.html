@@ -1,0 +1,60 @@
+
+<ng-container *ngIf="cinema else noCinema">
+    <input #searchbar type="text" id="searchbar" (keyup.enter)="submitSearch($event)"/>
+
+    <ng-container *ngIf="downloadProgress$ | async">
+        <div id="progressbar">
+            <div id="dlProgIndicator" [style.width.%]="downloadProgress$.value!"></div>
+        </div>
+    </ng-container>
+
+    <div class="content">
+        <video  #vid
+                id="videoplayer" 
+                (click)="pause()"
+                (seeked)="seeked()"
+                src="{{api}}videos/stream/{{selectedVideo$.value?.id}}" 
+                controls allow="autoplay"></video>
+        <ng-container *ngIf="vid">
+            <div id="controls">
+                <div    class="toggleplay"
+                        (click)="pause()">
+                    <i class="fa-solid" [ngClass]="{'fa-play': vid.paused, 'fa-pause': !vid.paused}"></i>
+                </div>
+                <div class="time">
+                    <span>{{vid.currentTime}} / {{vid.duration}} {{selectedVideo$.value?.paused}}</span>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+
+    <div id="videolist">
+        <ng-container *ngFor="let video of videoList$ | async">
+            <bug-videoelement [videoElement]="video" (selectedVideo)="setSelectedVideo($event)"></bug-videoelement>
+        </ng-container>
+    </div>
+
+
+
+    <div id="clientlist">
+        <!-- TODO -->
+    </div>
+    <!-- <button 
+        (click)="pause()"
+        >togglePause</button> Temp -->
+</ng-container>
+
+<ng-template #noCinema>
+    <ng-container *ngIf="!hasparams && !cinema">
+        <div class="notSelectedContent">
+            <span>No Cinema</span>
+            <button (click)="onCreate()">Create Cinema</button>
+    
+            
+            <div id="cinemalist">
+                <bug-cinema-item *ngFor="let cinema of cinemaService.items$ | async"
+                             [cinemaElement]="cinema"></bug-cinema-item>
+            </div>
+        </div>
+    </ng-container>
+</ng-template>

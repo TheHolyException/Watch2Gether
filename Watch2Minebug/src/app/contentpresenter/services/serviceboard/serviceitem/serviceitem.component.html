@@ -1,0 +1,23 @@
+<div class="title" (click)="onFold()">
+  <span>{{service.name}}</span>
+  <img *ngIf="service.iconPath" src="assets/icons/{{service.iconPath}}.png"/>
+</div>
+
+
+<ng-container *ngIf="!folded">
+  <span class="description">{{service.description}}</span>
+
+  <i class="fa-solid fa-gears" (click)="onOptionClick()"></i>
+
+  <ng-container *ngIf="(serviceService.items$ | async | serviceparentfilter:service.id)!.length>0">
+    <div class="subServicesTitle" (click)="onFoldSubServices()">
+      <span>Subservices</span>
+    </div>
+    <div class="subServices" *ngIf="extendSubservices">
+      <bug-serviceitem *ngFor="let x of serviceService.items$ | async | serviceparentfilter:service.id"
+                       [service]="x"
+                       class="subService"
+      ></bug-serviceitem>
+    </div>
+  </ng-container>
+</ng-container>

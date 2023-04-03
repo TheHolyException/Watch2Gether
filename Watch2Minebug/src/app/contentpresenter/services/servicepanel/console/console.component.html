@@ -1,0 +1,16 @@
+<span>Status: {{status.text}}</span>
+
+<div class="controlbar">
+  <ng-container *ngIf="status.id === 0; else serviceOnline">
+    <button class="start"><i class="fa-solid fa-play"></i>Start</button>
+  </ng-container>
+  <ng-template #serviceOnline>
+    <button class="stop"><i class="fa-solid fa-stop"></i>Stop</button>
+    <button class="kill"><i class="fa-solid fa-skull"></i>Kill</button>
+  </ng-template>
+</div>
+
+<div class="console">
+  <textarea name="" id="" cols="30" rows="10" readonly="readonly"></textarea>
+  <input type="text" (keydown.enter)="onSubmit($event)" [(ngModel)]="inputText">
+</div>

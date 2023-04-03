@@ -1,0 +1,71 @@
+
+.controlbar {
+  position: absolute;
+  display: flex;
+  gap: 2rem;
+
+  right: 5%;
+  top: 5%;
+
+
+  &>button {
+    width: 7rem;
+    height: 2rem;
+    border: none;
+
+
+    &>i {
+      margin-right: 1rem;
+    }
+
+
+    &.stop {
+      background-color: #b62c31;
+      &:hover {
+        background-color: #da4248;
+      }
+    }
+
+    &.start {
+      background-color: #80f05a;
+      &:hover {
+        background-color: #85e364;
+      }
+    }
+
+    &.kill {
+      color: var(--color);
+      background-color: #0f0e17;
+      &:hover {
+        background-color: #2d2941;
+      }
+    }
+  }
+}
+
+.console {
+  position: absolute;
+
+  width: 90%;
+  height: 80%;
+
+  bottom: 5%;
+  left: 5%;
+
+  background-color: var(--backgroundColor);
+
+  &>textarea {
+    background-color: var(--backgroundColor);
+    resize: none;
+    border: none;
+    width: 100%;
+    height: calc(100% - 1rem);
+  }
+
+  &>input {
+    color: var(--color);
+    background-color: var(--backgroundColor);
+    height: 1rem;
+    width: 100%;
+  }
+}

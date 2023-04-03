@@ -1,0 +1,52 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --color: #fffffe;
+  --backgroundColor: #0f0e17;
+  --backgroundColorDarker: #060609;
+  --backgroundColorAlt: #1b182d;
+  --buttonColor: #fffffe;
+  --buttonBackground2: #ff8906;
+  --buttonBackground2_selected: #f25f4c;
+  --buttonBackground2_selectedAlt: #f24c65;
+
+  --buttonBackground: #4b3788;
+  --buttonBackground_selected: #6b50bb;
+  --buttonBackground_selectedAlt: #2cb67d;
+
+
+}
+
+* {
+  font-family: "Calibri";
+  font-weight: bold;
+
+}
+
+body {
+  background-color: var(--backgroundColor);
+  color: var(--color);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--buttonBackground);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--buttonBackground_selected);
+}
+
+

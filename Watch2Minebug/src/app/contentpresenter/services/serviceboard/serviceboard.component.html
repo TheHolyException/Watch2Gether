@@ -1,0 +1,3 @@
+<bug-serviceitem *ngFor="let service of serviceService.items$ | async | serviceparentfilter"
+                 [service]="service"
+></bug-serviceitem>

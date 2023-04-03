@@ -1,0 +1,26 @@
+:host {
+  height: 64px;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  user-select: none;
+
+  &.active {
+    background-color: var(--buttonBackground_selected);
+  }
+
+
+
+  &:not(.active) {
+    &:hover {
+      border-bottom: solid 6px var(--buttonBackground_selected);
+    }
+  }
+}
+
+span {
+  padding-left: 10px;
+}
